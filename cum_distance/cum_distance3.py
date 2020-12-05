@@ -16,8 +16,7 @@ year_max = data[data.columns[1]].max().year
 def year_to_2020(x):
     return datetime.datetime(2020, x.month, x.day)
 
-for i in range(year_max - year_min + 1):
-    y = year_min + i
+for y in range(year_min, year_max + 1):
     data_run = data[ data[data.columns[1]] >= str(y) + '-01-01']
     data_run = data_run[ data_run[data_run.columns[1]] < str(y+1) + '-01-01']
     plt.plot(
@@ -27,7 +26,7 @@ for i in range(year_max - year_min + 1):
     )
 
 ymin = 0
-ymax = 1600
+ymax = 1800
 
 plt.xlabel("Month")
 plt.xlim(datetime.datetime(2020, 1, 1), datetime.datetime(2021, 1, 1))
