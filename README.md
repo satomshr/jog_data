@@ -14,3 +14,5 @@ Data of jogging
 - cum_distance.svg ; graphs (not satisfied :-p)
 - cum_distance2.py ; draw graphs of cumulative distance in one figure
 - cum_distance2.svg ; graph in one figure (good! :-)
+- cum_distance3.py ; function is same as that of cum_distance2.py. but, we need not care the change of year
+- cum_distance3.svg ; output of cum_distance3.py
