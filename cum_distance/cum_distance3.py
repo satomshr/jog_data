@@ -13,18 +13,16 @@ data = data.sort_values(data.columns[1])
 year_min = data[data.columns[1]].min().year
 year_max = data[data.columns[1]].max().year
 
-data_run = []
-
 def year_to_2020(x):
     return datetime.datetime(2020, x.month, x.day)
 
 for i in range(year_max - year_min + 1):
     y = year_min + i
-    data_run.append( data[ data[data.columns[1]] >= str(y) + '-01-01'] )
-    data_run[i] = data_run[i][ data_run[i][data_run[i].columns[1]] < str(y+1) + '-01-01']
+    data_run = data[ data[data.columns[1]] >= str(y) + '-01-01']
+    data_run = data_run[ data_run[data_run.columns[1]] < str(y+1) + '-01-01']
     plt.plot(
-        data_run[i][ data_run[i].columns[1] ].map(year_to_2020),
-        data_run[i][ data_run[i].columns[6] ].cumsum(),
+        data_run[ data_run.columns[1] ].map(year_to_2020),
+        data_run[ data_run.columns[6] ].cumsum(),
         label=str(y)
     )
 
