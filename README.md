@@ -16,3 +16,5 @@ Data of jogging
 - cum_distance2.svg ; graph in one figure (good! :-)
 - cum_distance3.py ; function is same as that of cum_distance2.py. but, we need not care the change of year
 - cum_distance3.svg ; output of cum_distance3.py
+
+![cum_distance3.svg](./cum_distance/cum_distance3.svg)
