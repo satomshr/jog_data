@@ -34,6 +34,7 @@ plt.ylabel("Cumulative distance (km)")
 plt.ylim(ymin, ymax)
 plt.grid(True)
 plt.legend(loc="upper left")
+plt.title(label="updated on {0:%Y-%m-%d %H:%M:%S}".format(datetime.datetime.now()), loc="right")
 
 # http://hydro.iis.u-tokyo.ac.jp/~ikeuchi/it-memo/python/python-mpl.html
 datefmt = mdates.DateFormatter('%m')
