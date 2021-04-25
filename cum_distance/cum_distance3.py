@@ -24,6 +24,7 @@ for y in range(year_min, year_max + 1):
         data_run[ data_run.columns[6] ].cumsum(),
         label=str(y)
     )
+    print('CY{} ; {:8.3f} km'.format(y, data_run[ data_run.columns[6] ].sum()))
 
 ymin = 0
 ymax = 1800
