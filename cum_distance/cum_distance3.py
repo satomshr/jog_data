@@ -16,6 +16,8 @@ year_max = data[data.columns[1]].max().year
 def year_to_2020(x):
     return datetime.datetime(2020, x.month, x.day)
 
+cum_distance = 0
+
 for y in range(year_min, year_max + 1):
     data_run = data[ data[data.columns[1]] >= str(y) + '-01-01']
     data_run = data_run[ data_run[data_run.columns[1]] < str(y+1) + '-01-01']
@@ -24,10 +26,13 @@ for y in range(year_min, year_max + 1):
         data_run[ data_run.columns[6] ].cumsum(),
         label=str(y)
     )
-    print('CY{} ; {:8.3f} km'.format(y, data_run[ data_run.columns[6] ].sum()))
+    cum_distance_tmp = data_run[ data_run.columns[6] ].sum()
+    if cum_distance < cum_distance_tmp:
+        cum_distance = cum_distance_tmp
+    print('CY{} ; {:8.3f} km'.format(y, cum_distance_tmp))
 
 ymin = 0
-ymax = 1800
+ymax = ((cum_distance // 200) + 1) * 200
 
 plt.xlabel("Month")
 plt.xlim(datetime.datetime(2020, 1, 1), datetime.datetime(2021, 1, 1))
